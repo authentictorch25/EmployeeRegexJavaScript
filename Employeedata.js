@@ -63,6 +63,16 @@ class EmployeeData{
          throw 'Invalid Pin Code';
      }
  }
+ get email() { return this._email; }
+    set email(email) {
+        let emailRegex = RegExp('^[a-zA-Z0-9]+([.+-]{1}[A-Za-z0-9]+)*[@][a-zA-Z0-9]+([.]{1}([a-zA-Z]{2}|[a-zA-Z]{3,})){0,2}$');
+        if (emailRegex.test(email)) {
+            this._email = email;
+        }
+        else {
+            throw 'Invalid email-id';
+        }
+    }
 
  // method
  toString() {
@@ -73,20 +83,21 @@ class EmployeeData{
 }
 
 try {
- let employeePayrollData = new EmployeeData(1, "Virat", 3000, 'M', new Date(), 'A122585');
- console.log(employeePayrollData.toString());
+    let employeePayrollData = new EmployeeData(1, "Virat", 3000, 'M', new Date(), '222585', 'aks@gmail.co.in');
+    console.log(employeePayrollData.toString());
 } catch (e) {
- console.error(e);
+    console.error(e);
 }
 try {
- let employeePayrollData = new EmployeeData(1, "Rohit", 3000, 'M', new Date(), '122585');
- console.log(employeePayrollData.toString());
+    let employeePayrollData = new EmployeeData(1, "Rohit", 3000, 'M', new Date(), '122585', 'A@d@p.com');
+    console.log(employeePayrollData.toString());
 } catch (e) {
- console.error(e);
+    console.error(e);
 }
 try {
- let newEmployeePayrollData = new EmployeeData(1, "Smith", 3000, 'M', new Date(), '166658');
- console.log(newEmployeePayrollData.toString());
+    let newEmployeePayrollData = new EmployeeData(1, "Smith", 3000, 'M', new Date(), '166658', 'steve.smith@aus.crck.in');
+    console.log(newEmployeePayrollData.toString());
 } catch (e) {
- console.error(e);
+    console.error(e);
 }
+
